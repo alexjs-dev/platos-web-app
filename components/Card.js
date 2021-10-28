@@ -35,10 +35,16 @@ const Banner = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   height: 11rem;
+  max-height: 11rem;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const Content = styled.div`
@@ -69,11 +75,11 @@ const Icon = styled.div`
     rgba(255, 255, 255, 0.1) 42.15%
   );
   backdrop-filter: blur(9px);
-
   border-radius: 20px;
   position: absolute;
-  height: 3rem;
-  width: 3rem;
+  height: 4rem;
+  z-index: 1;
+  width: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,6 +91,15 @@ const Icon = styled.div`
     font-size: 30px;
     color: #f3f3f3;
     transition: all 0.3s ease-in-out;
+  }
+  img {
+    width: 140px;
+    height: 140px;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 80px;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
   &:hover {
     cursor: pointer;
@@ -129,7 +144,8 @@ const Details = styled.div`
       font-size: 30px;
     }
     p {
-      color: white;
+      color: black;
+      font-weight: 300;
       transition: all 0.3s ease-in-out;
     }
     h4 {
@@ -161,19 +177,24 @@ const Details = styled.div`
 const Card = ({
   backgroundImage,
   isHot,
-  timeSpent,
+  isReverted,
   title,
   type,
-  peopleLearning,
-  tokensGenerated,
+  descriptionTitle1,
+  descriptionTitle2,
+  descriptionTitle3,
+  descriptionTitle4,
+  descriptionContent1,
+  descriptionContent2,
+  descriptionContent3,
+  actionTitle,
+  icon,
 }) => {
   const ChartColor = isHot ? '#FF5733' : '0096ff';
   const ChartIcon = isHot ? BiLineChart : BiLineChartDown;
   return (
-    <Container>
-      <Icon>
-        <SiElixir />
-      </Icon>
+    <Container revert={isReverted}>
+      <Icon>{icon}</Icon>
       <Settings>
         <HiDotsVertical />
       </Settings>
@@ -183,47 +204,44 @@ const Card = ({
         <p>{type}</p>
         <Details>
           <section>
-            <h4>People</h4>
-            <p>{peopleLearning}</p>
+            <h4>{descriptionTitle1}</h4>
+            <p>{descriptionContent1}</p>
           </section>
           <section>
-            <h4>Tokens</h4>
-            <p>{tokensGenerated}</p>
+            <h4>{descriptionTitle2}</h4>
+            <p>{descriptionContent2}</p>
           </section>
         </Details>
         <Details>
           <section>
-            <h4>Time spent</h4>
-            <p>{timeSpent}h</p>
+            <h4>{descriptionTitle3}</h4>
+            <p>{descriptionContent3}</p>
           </section>
           <section>
-            <h4>Popularity</h4>
+            <h4>{descriptionTitle4}</h4>
             <ChartIcon color={ChartColor} />
           </section>
         </Details>
-        <GlassButton type="primary">Learn</GlassButton>
+        <GlassButton type="primary">{actionTitle}</GlassButton>
       </Content>
     </Container>
   );
 };
 
-Card.propTypes = {
-  backgroundImage: PropTypes.string,
-  isHot: PropTypes.bool,
-  timeSpent: PropTypes.number,
-  title: PropTypes.string,
-  type: PropTypes.string,
-  peopleLearning: PropTypes.number,
-  tokensGenerated: PropTypes.number,
-};
-
 Card.defaultProps = {
   isHot: false,
-  peopleLearning: 0,
-  tokensGenerated: 0,
+  isReverted: false,
   title: 'Elixir course',
+  icon: <SiElixir />,
   type: 'Programming',
-  timeSpent: 0,
+  actionTitle: 'Learn',
+  descriptionTitle1: 'Title 1',
+  descriptionTitle2: 'Title 2',
+  descriptionTitle3: 'Title 3',
+  descriptionTitle4: 'Title 4',
+  descriptionContent1: 'Content 1',
+  descriptionContent2: 'Content 2',
+  descriptionContent3: 'Content 3',
   backgroundImage:
     'https://images.unsplash.com/photo-1506391436719-ceef2f52be69?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
 };

@@ -7,6 +7,8 @@ import Card from '../../components/Card';
 import CardContainer from '../../components/CardContainer';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import { SiJavascript, SiElixir } from 'react-icons/si';
+import { FaMoneyBill } from 'react-icons/fa';
 
 import * as bookLoadingAnim from '../../lottie/book_loading.json';
 import AbstractLogo from '../../public/abstract_1.svg';
@@ -64,6 +66,87 @@ const Container = styled.div`
   }
 `;
 
+const learnCards = [
+  {
+    isHot: false,
+    title: 'Elixir course',
+    type: 'Programming',
+    actionTitle: 'Learn',
+    descriptionTitle1: 'People',
+    descriptionTitle2: 'Tokens',
+    descriptionTitle3: 'Difficulty',
+    descriptionTitle4: 'Cold',
+    descriptionContent1: 6,
+    descriptionContent2: 8,
+    descriptionContent3: 'Hard',
+    backgroundImage: '23622.jpg',
+    icon: <SiElixir />,
+  },
+  {
+    isHot: true,
+    icon: <SiJavascript />,
+    title: 'Javascript course',
+    type: 'Programming',
+    actionTitle: 'Learn',
+    descriptionTitle1: 'People',
+    descriptionTitle2: 'Tokens',
+    descriptionTitle3: 'Difficulty',
+    descriptionTitle4: 'Hot',
+    descriptionContent1: 29,
+    descriptionContent2: 2,
+    descriptionContent3: 'Easy',
+    backgroundImage: '366638.jpg',
+  },
+  {
+    isHot: true,
+    icon: <FaMoneyBill />,
+    title: 'Accounting course',
+    type: 'Accounting',
+    actionTitle: 'Learn',
+    descriptionTitle1: 'People',
+    descriptionTitle2: 'Tokens',
+    descriptionTitle3: 'Difficulty',
+    descriptionTitle4: 'Hot',
+    descriptionContent1: 62,
+    descriptionContent2: 5,
+    descriptionContent3: 'Medium',
+    backgroundImage: 'mountains.jpeg',
+  },
+];
+
+const marketCards = [
+  {
+    isHot: true,
+    title: 'Yolo Pen',
+    type: 'Yolo Merch',
+    actionTitle: 'Buy',
+    descriptionTitle1: 'Price',
+    descriptionTitle2: 'Bought',
+    descriptionTitle3: 'Weight',
+    descriptionTitle4: 'Hot',
+    descriptionContent1: 0.5,
+    descriptionContent2: 827,
+    descriptionContent3: 'Tiny',
+    backgroundImage: 'gold.jpg',
+    icon: <img src="/pen.png" alt="Pen" />,
+  },
+  {
+    isHot: true,
+    title: 'Yolo Pen',
+    type: 'Yolo Merch',
+    actionTitle: 'Buy',
+    descriptionTitle1: 'Price',
+    descriptionTitle2: 'Bought',
+    descriptionTitle3: 'Weight',
+    descriptionTitle4: 'Hot',
+    descriptionContent1: 0.5,
+    descriptionContent2: 827,
+    descriptionContent3: 'Tiny',
+    backgroundImage: 'bg.jpg',
+    icon: <img src="/pen.png" alt="Pen" />,
+  },
+];
+
 const Page = () => {
   return (
     <>
@@ -78,9 +161,9 @@ const Page = () => {
           title="To Learn"
           content={
             <CardContainer>
-              <Card />
-              <Card />
-              <Card />
+              {learnCards.map((card) => (
+                <Card key={card.title} {...card} />
+              ))}
             </CardContainer>
           }
           background={<AbstractLogo2 />}
@@ -93,6 +176,17 @@ const Page = () => {
             </Charts>
           }
           background={<AbstractLogo />}
+        />
+        <Wrapper
+          title="To Buy"
+          content={
+            <CardContainer>
+              {marketCards.map((card) => (
+                <Card key={card.title} {...card} />
+              ))}
+            </CardContainer>
+          }
+          background={<AbstractLogo2 />}
         />
       </Container>
       <Footer />

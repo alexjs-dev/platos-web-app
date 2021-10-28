@@ -27,19 +27,7 @@ const Container = styled.div`
 `;
 
 const MobileWrapper = styled.div`
-  display: none !important;
-  width: 25vw;
-  height: 25vw;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  svg {
-    width: 25vw;
-    height: 25vw;
-  }
-  @media screen and (max-width: 768px) {
-    display: flex !important;
-  }
+  display: none;
 `;
 
 const Wrapper = ({ content, background, title }) => {
