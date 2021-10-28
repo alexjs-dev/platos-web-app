@@ -49,7 +49,7 @@ const Banner = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   background-attachment: fixed;
-  @supports (-webkit-touch-callout: none) {
+  @media screen and (max-width: 768px) {
     background-attachment: none;
   }
 `;
