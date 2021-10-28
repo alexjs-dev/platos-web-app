@@ -65,7 +65,6 @@ const Page = () => {
     isSignedIn: true,
     fetchBasicProfile: true,
     onSuccess: (res) => {
-      console.log(res)
       setProfile(res.profileObj);
     },
   });

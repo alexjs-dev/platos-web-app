@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SiElixir } from 'react-icons/si';
-import { HiDotsVertical } from 'react-icons/hi';
+import { BsCartFill } from 'react-icons/bs';
 import { BiLineChart, BiLineChartDown } from 'react-icons/bi';
 import GlassButton from './GlassButton';
 import styled from 'styled-components';
@@ -119,9 +119,9 @@ const Settings = styled.button`
   top: 12rem;
   right: 0.5rem;
   border-radius: 1rem;
-  padding: 0.2rem;
+  padding: 0.7rem;
   svg {
-    font-size: 30px;
+    font-size: 20px;
   }
   &:hover {
     cursor: pointer;
@@ -188,6 +188,7 @@ const Card = ({
   descriptionContent2,
   descriptionContent3,
   actionTitle,
+  onClick,
   icon,
 }) => {
   const ChartColor = isHot ? '#FF5733' : '0096ff';
@@ -196,7 +197,7 @@ const Card = ({
     <Container revert={isReverted}>
       <Icon>{icon}</Icon>
       <Settings>
-        <HiDotsVertical />
+        <BsCartFill />
       </Settings>
       <Banner src={backgroundImage} />
       <Content>
@@ -222,7 +223,9 @@ const Card = ({
             <ChartIcon color={ChartColor} />
           </section>
         </Details>
-        <GlassButton type="primary">{actionTitle}</GlassButton>
+        <GlassButton type="primary" onPress={onClick}>
+          {actionTitle}
+        </GlassButton>
       </Content>
     </Container>
   );
@@ -233,6 +236,7 @@ Card.defaultProps = {
   isReverted: false,
   title: 'Elixir course',
   icon: <SiElixir />,
+  onClick: () => {},
   type: 'Programming',
   actionTitle: 'Learn',
   descriptionTitle1: 'Title 1',

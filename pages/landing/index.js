@@ -2,18 +2,20 @@ import Head from 'next/head';
 
 import Lottie from 'react-lottie';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
+
 import Card from '../../components/Card';
 
 import CardContainer from '../../components/CardContainer';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import { SiJavascript, SiElixir } from 'react-icons/si';
-import { FaMoneyBill } from 'react-icons/fa';
+import Search from '../../components/Search';
 
 import * as animation from '../../lottie/girl_reading_book.json';
 import AbstractLogo from '../../public/abstract_1.svg';
 import AbstractLogo2 from '../../public/abstract_2.svg';
 import Wrapper from '../../components/Wrapper';
+import { learnCards, marketCards } from '../../mock';
 
 import dynamic from 'next/dynamic';
 
@@ -67,88 +69,8 @@ const Container = styled.div`
   }
 `;
 
-const learnCards = [
-  {
-    isHot: false,
-    title: 'Elixir course',
-    type: 'Programming',
-    actionTitle: 'Learn',
-    descriptionTitle1: 'People',
-    descriptionTitle2: 'Tokens',
-    descriptionTitle3: 'Difficulty',
-    descriptionTitle4: 'Cold',
-    descriptionContent1: 6,
-    descriptionContent2: 8,
-    descriptionContent3: 'Hard',
-    backgroundImage: '23622.jpg',
-    icon: <SiElixir />,
-  },
-  {
-    isHot: true,
-    icon: <SiJavascript />,
-    title: 'Javascript course',
-    type: 'Programming',
-    actionTitle: 'Learn',
-    descriptionTitle1: 'People',
-    descriptionTitle2: 'Tokens',
-    descriptionTitle3: 'Difficulty',
-    descriptionTitle4: 'Hot',
-    descriptionContent1: 29,
-    descriptionContent2: 2,
-    descriptionContent3: 'Easy',
-    backgroundImage: '366638.jpg',
-  },
-  {
-    isHot: true,
-    icon: <FaMoneyBill />,
-    title: 'Accounting course',
-    type: 'Accounting',
-    actionTitle: 'Learn',
-    descriptionTitle1: 'People',
-    descriptionTitle2: 'Tokens',
-    descriptionTitle3: 'Difficulty',
-    descriptionTitle4: 'Hot',
-    descriptionContent1: 62,
-    descriptionContent2: 5,
-    descriptionContent3: 'Medium',
-    backgroundImage: 'mountains.jpeg',
-  },
-];
-
-const marketCards = [
-  {
-    isHot: true,
-    title: 'Yolo Pen',
-    type: 'Yolo Merch',
-    actionTitle: 'Buy',
-    descriptionTitle1: 'Price',
-    descriptionTitle2: 'Bought',
-    descriptionTitle3: 'Weight',
-    descriptionTitle4: 'Hot',
-    descriptionContent1: 0.5,
-    descriptionContent2: 827,
-    descriptionContent3: 'Tiny',
-    backgroundImage: 'gold.jpg',
-    icon: <img src="/pen.png" alt="Pen" />,
-  },
-  {
-    isHot: true,
-    title: 'Yolo Pen',
-    type: 'Yolo Merch',
-    actionTitle: 'Buy',
-    descriptionTitle1: 'Price',
-    descriptionTitle2: 'Bought',
-    descriptionTitle3: 'Weight',
-    descriptionTitle4: 'Hot',
-    descriptionContent1: 0.5,
-    descriptionContent2: 827,
-    descriptionContent3: 'Tiny',
-    backgroundImage: 'bg.jpg',
-    icon: <img src="/pen.png" alt="Pen" />,
-  },
-];
-
 const Page = () => {
+  const router = useRouter();
   return (
     <>
       <Header />
@@ -166,6 +88,7 @@ const Page = () => {
           isStopped={false}
           isPaused={false}
         />
+        <Search />
         <Wrapper
           title="To Learn"
           content={
@@ -191,7 +114,11 @@ const Page = () => {
           content={
             <CardContainer>
               {marketCards.map((card) => (
-                <Card key={card.title} {...card} />
+                <Card
+                  key={card.title}
+                  onClick={() => router.push('/market')}
+                  {...card}
+                />
               ))}
             </CardContainer>
           }
