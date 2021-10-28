@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import Card from '../../components/Card';
 import { AwesomeButton } from 'react-awesome-button';
 import * as bookLoadingAnim from '../../lottie/book_loading.json';
-import Image from 'next/image';
+import AbstractLogo from '../../public/abstract_1.svg';
+import Wrapper from '../../components/Wrapper';
 import { useRouter } from 'next/router';
 import { useGoogleLogin } from 'react-google-login';
 import { CLIENT_ID } from '../login/google/config';
@@ -67,10 +68,10 @@ const Page = () => {
         options={bookLoadingAnimOptions}
         height={'50vw'}
         width={'50vw'}
-        isStopped={false}
+        isStopped={true}
         isPaused={false}
       />
-      <Card />
+      <Wrapper content={<Card />} background={<AbstractLogo />} />
     </Container>
   );
 };

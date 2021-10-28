@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import { SiElixir } from 'react-icons/si';
 import { HiDotsVertical } from 'react-icons/hi';
 import { BiLineChart, BiLineChartDown } from 'react-icons/bi';
-import { AwesomeButton } from 'react-awesome-button';
+import GlassButton from './GlassButton';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  background: linear-gradient(180deg, #b9fbff 0%, #d1c9f1 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(185, 251, 255, 0.5) 0%,
+    rgba(209, 201, 241, 0.5) 100%
+  );
   box-shadow: 40px 40px 100px rgba(24, 48, 63, 0.2);
   border-radius: 40px;
-  opacity: 0.9;
-
-  max-width: 360px;
-  width: 100%;
+  opacity: 1;
+  width: 360px;
   height: 500px;
   display: grid;
   grid-template-rows: 11rem 1fr;
@@ -61,29 +63,33 @@ const Content = styled.div`
 `;
 
 const Icon = styled.div`
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 42.15%
+  );
+  backdrop-filter: blur(9px);
+
+  border-radius: 20px;
   position: absolute;
   height: 7rem;
   width: 7rem;
-  border-radius: 50%;
-  background-color: #f3f3f3;
   display: flex;
   justify-content: center;
   align-items: center;
   top: 6rem;
   left: 50%;
-  box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.67);
   transform: translateX(-50%);
   transition: all 0.3s ease-in-out;
   svg {
     font-size: 30px;
+    color: #f3f3f3;
     transition: all 0.3s ease-in-out;
   }
   &:hover {
     cursor: pointer;
-    background-color: black;
-    transform: translateX(-50%);
     svg {
-      color: #f3f3f3;
+      transform: scale(1.2);
     }
   }
   @media screen and (max-width: 768px) {
@@ -123,16 +129,16 @@ const Details = styled.div`
       font-size: 30px;
     }
     p {
-      color: #8c8c8c;
+      color: white;
       transition: all 0.3s ease-in-out;
     }
     h4 {
-      color: #0096ff;
+      color: #352b73;
       margin-bottom: 4px;
     }
     &:hover {
       p {
-        color: #0096ff;
+        color: #352b73;
       }
     }
   }
@@ -177,11 +183,11 @@ const Card = ({
         <p>{type}</p>
         <Details>
           <section>
-            <h4>People learning</h4>
+            <h4>People</h4>
             <p>{peopleLearning}</p>
           </section>
           <section>
-            <h4>Tokens generated</h4>
+            <h4>Tokens</h4>
             <p>{tokensGenerated}</p>
           </section>
         </Details>
@@ -195,7 +201,7 @@ const Card = ({
             <ChartIcon color={ChartColor} />
           </section>
         </Details>
-        <AwesomeButton type="primary">Learn</AwesomeButton>
+        <GlassButton type="primary">Learn</GlassButton>
       </Content>
     </Container>
   );
