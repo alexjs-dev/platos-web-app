@@ -14,15 +14,35 @@ const Container = styled.div`
     z-index: -1;
   }
   @media screen and (max-width: 768px) {
+    > svg {
+      display: none;
+    }
+  }
+`;
+
+const MobileWrapper = styled.div`
+  display: none;
+  width: 50vw;
+  height: 50vw;
+  position: absolute;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  @media screen and (max-width: 768px) {
+    display: block;
   }
 `;
 
 const Wrapper = ({ content, background }) => {
   return (
-    <Container className="wrapper">
-      {content}
-      {background && background}
-    </Container>
+    <>
+      <Container className="wrapper">
+        {content}
+        {background && background}
+      </Container>
+      {background && <MobileWrapper>{background}</MobileWrapper>}
+    </>
   );
 };
 
