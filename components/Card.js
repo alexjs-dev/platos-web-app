@@ -7,9 +7,11 @@ import { AwesomeButton } from 'react-awesome-button';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  border-radius: 2rem;
-  box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.67);
-  background-color: white;
+  background: linear-gradient(180deg, #b9fbff 0%, #d1c9f1 100%);
+  box-shadow: 40px 40px 100px rgba(24, 48, 63, 0.2);
+  border-radius: 40px;
+  opacity: 0.9;
+
   max-width: 360px;
   width: 100%;
   height: 500px;
