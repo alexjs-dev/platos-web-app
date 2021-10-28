@@ -117,6 +117,7 @@ const Page = () => {
                 <Card
                   key={card.title}
                   onClick={() => router.push('/market')}
+                  isReverted={true}
                   {...card}
                 />
               ))}

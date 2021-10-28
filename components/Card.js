@@ -4,7 +4,13 @@ import { SiElixir } from 'react-icons/si';
 import { BsCartFill } from 'react-icons/bs';
 import { BiLineChart, BiLineChartDown } from 'react-icons/bi';
 import GlassButton from './GlassButton';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const gridStylesReverted = css`
+  .grid:nth-child(even) {
+    order: -1;
+  }
+`;
 
 const Container = styled.div`
   background: linear-gradient(
@@ -18,9 +24,10 @@ const Container = styled.div`
   width: 360px;
   height: 500px;
   display: grid;
-  grid-template-rows: 11rem 1fr;
+  grid-template-rows: ${(props) => (props.revert && 'unset') || '11rem 1fr'};
   overflow: hidden;
   position: relative;
+  ${(props) => props.revert && gridStylesReverted}
   @media screen and (max-width: 768px) {
     max-width: unset;
     width: 100%;
@@ -34,17 +41,14 @@ const Banner = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 11rem;
   max-height: 11rem;
+  height: ${(props) => (props.revert && 'auto') || '11rem'};
   display: flex;
   align-items: flex-end;
   justify-content: center;
   box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
   overflow: hidden;
-  &:hover {
-    transform: scale(1.1);
-  }
+  background-attachment: fixed;
 `;
 
 const Content = styled.div`
@@ -83,20 +87,26 @@ const Icon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 9rem;
+  top: ${(props) => (props.revert && 'unset') || '9rem'};
+  bottom: ${(props) => (props.revert && '3rem') || 'unset'};
   left: 50%;
   transform: translateX(-50%);
   transition: all 0.3s ease-in-out;
+  > span {
+    overflow: visible !important;
+  }
   svg {
     font-size: 30px;
     color: #f3f3f3;
     transition: all 0.3s ease-in-out;
   }
   img {
-    width: 140px;
-    height: 140px;
+    width: 80% !important;
+    height: 80% !important;
     transition: all 0.3s ease-in-out;
     margin-bottom: 80px;
+    object-fit: scale-down;
+
     &:hover {
       transform: scale(1.2);
     }
@@ -195,12 +205,12 @@ const Card = ({
   const ChartIcon = isHot ? BiLineChart : BiLineChartDown;
   return (
     <Container revert={isReverted}>
-      <Icon>{icon}</Icon>
+      <Icon revert={isReverted}>{icon}</Icon>
       <Settings>
         <BsCartFill />
       </Settings>
-      <Banner src={backgroundImage} />
-      <Content>
+      <Banner src={backgroundImage} className="grid" revert={isReverted} />
+      <Content className="grid">
         <h1>{title}</h1>
         <p>{type}</p>
         <Details>

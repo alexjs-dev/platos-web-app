@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { SiJavascript, SiElixir } from 'react-icons/si';
 import { FaMoneyBill } from 'react-icons/fa';
 
@@ -50,11 +51,15 @@ export const learnCards = [
   },
 ];
 
+const imageSize = 100;
 export const marketCards = [
   {
     isHot: true,
     title: 'Yolo Pen',
     type: 'Yolo Merch',
+    item: {
+      type: 'merch',
+    },
     actionTitle: 'Buy',
     descriptionTitle1: 'Price',
     descriptionTitle2: 'Bought',
@@ -64,81 +69,138 @@ export const marketCards = [
     descriptionContent2: 827,
     descriptionContent3: 'Tiny',
     backgroundImage: 'gold.jpg',
-    icon: <img src="/pen.png" alt="Pen" />,
+    icon: (
+      <Image
+        src="/market/pen.png"
+        alt="Pen"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
   },
   {
     isHot: true,
-    title: 'Yolo Pen',
-    type: 'Yolo Merch',
+    title: '5 EUR coupon',
+    type: 'Freddo',
+    item: {
+      type: 'food',
+    },
     actionTitle: 'Buy',
     descriptionTitle1: 'Price',
     descriptionTitle2: 'Bought',
     descriptionTitle3: 'Weight',
     descriptionTitle4: 'Hot',
-    descriptionContent1: 0.5,
-    descriptionContent2: 827,
-    descriptionContent3: 'Tiny',
+    descriptionContent1: 3,
+    descriptionContent2: imageSize,
+    descriptionContent3: '200 (g)',
     backgroundImage: 'bg.jpg',
-    icon: <img src="/pen.png" alt="Pen" />,
+    icon: (
+      <Image
+        src="/market/burger.png"
+        alt="Burger"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
   },
   {
     isHot: true,
-    title: 'Yolo Pen',
+    title: 'Yolo Cap',
     type: 'Yolo Merch',
+    item: {
+      type: 'merch',
+    },
     actionTitle: 'Buy',
     descriptionTitle1: 'Price',
     descriptionTitle2: 'Bought',
     descriptionTitle3: 'Weight',
     descriptionTitle4: 'Hot',
-    descriptionContent1: 0.5,
-    descriptionContent2: 827,
+    descriptionContent1: 8,
+    descriptionContent2: 500,
     descriptionContent3: 'Tiny',
     backgroundImage: 'gold.jpg',
-    icon: <img src="/pen.png" alt="Pen" />,
+    icon: (
+      <Image
+        src="/market/cap.png"
+        alt="Product"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
   },
   {
-    isHot: true,
-    title: 'Yolo Pen',
+    isHot: false,
+    title: 'Yolo Dishes',
     type: 'Yolo Merch',
+    item: {
+      type: 'merch',
+    },
     actionTitle: 'Buy',
     descriptionTitle1: 'Price',
     descriptionTitle2: 'Bought',
     descriptionTitle3: 'Weight',
-    descriptionTitle4: 'Hot',
-    descriptionContent1: 0.5,
-    descriptionContent2: 827,
-    descriptionContent3: 'Tiny',
+    descriptionTitle4: 'Cold',
+    descriptionContent1: 10,
+    descriptionContent2: 52,
+    descriptionContent3: '500 (g)',
     backgroundImage: 'bg.jpg',
-    icon: <img src="/pen.png" alt="Pen" />,
+    icon: (
+      <Image
+        src="/market/dishes.png"
+        alt="Product"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
   },
   {
-    isHot: true,
-    title: 'Yolo Pen',
+    isHot: false,
+    title: 'Yolo Cup',
     type: 'Yolo Merch',
+    item: {
+      type: 'merch',
+    },
     actionTitle: 'Buy',
     descriptionTitle1: 'Price',
     descriptionTitle2: 'Bought',
     descriptionTitle3: 'Weight',
-    descriptionTitle4: 'Hot',
-    descriptionContent1: 0.5,
-    descriptionContent2: 827,
+    descriptionTitle4: 'Cold',
+    descriptionContent1: 1,
+    descriptionContent2: 50,
     descriptionContent3: 'Tiny',
     backgroundImage: 'gold.jpg',
-    icon: <img src="/pen.png" alt="Pen" />,
+    icon: (
+      <Image
+        src="/market/cup.png"
+        alt="Product"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
   },
   {
     isHot: true,
-    title: 'Yolo Pen',
+    title: 'Yolo TShirt',
     type: 'Yolo Merch',
+    item: {
+      type: 'merch',
+    },
     actionTitle: 'Buy',
     descriptionTitle1: 'Price',
     descriptionTitle2: 'Bought',
     descriptionTitle3: 'Weight',
     descriptionTitle4: 'Hot',
-    descriptionContent1: 0.5,
-    descriptionContent2: 827,
+    descriptionContent1: 2,
+    descriptionContent2: 1250,
     descriptionContent3: 'Tiny',
     backgroundImage: 'bg.jpg',
-    icon: <img src="/pen.png" alt="Pen" />,
+    icon: (
+      <Image
+        src="/market/tshirt.png"
+        alt="Product"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
   },
 ];
