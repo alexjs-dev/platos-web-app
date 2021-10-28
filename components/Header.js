@@ -42,7 +42,7 @@ const Name = styled.h2`
     display: none;
   }
 `;
-const MarketIcon = styled.section`
+const MarketIcon = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,12 +79,15 @@ const Header = () => {
   return (
     <Wrapper>
       <div style={{marginTop: '10px', marginLeft: "10px"}}>
-        <Link href="/">
-          <BiArch color= "#352b73" size="2em"/>
+        <Link href="/" > 
+          <a><BiArch color= "#352b73" size="2em"/></a>
         </Link>
       </div>
       <div style={{alignSelf: 'end'}}>
+        <Link href="/market">
           <MarketIcon><RiHandCoinFill color="#352b73"/></MarketIcon>
+          </Link>
+
         {profile ? (
           <>
             <Name>
@@ -92,11 +95,13 @@ const Header = () => {
               {profile && profile.name} &nbsp;&nbsp;
             </Name>
             <Link href="/profile">
-              <FaUserCircle
-                size="2em"
-                color="#352b73"
-                style={{ marginTop: '10px' }}
-              />
+              <a>
+                <FaUserCircle
+                  size="2em"
+                  color="#352b73"
+                  style={{ marginTop: '10px' }}
+                />
+              </a>
             </Link>
           </>
         ) : (
