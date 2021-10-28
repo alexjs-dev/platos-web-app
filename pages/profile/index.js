@@ -8,8 +8,6 @@ import Header from '../../components/Header';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 1rem 1.5rem;
   height: 100vh;
   background: linear-gradient(360deg, #b9fbff 0%, #d1c9f1 100%);
@@ -20,7 +18,7 @@ const Box = styled.div`
   width: 500px;
   min-height: 500px;
   @media screen and (max-width: 768px) {
-    width: 16rem;
+    width: 20rem;
     min-height: 300px;
   }
   display: flex;
