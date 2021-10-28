@@ -2,6 +2,8 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import styled from 'styled-components';
+import Card from '../../components/Card';
+import { AwesomeButton } from 'react-awesome-button';
 import * as bookLoadingAnim from '../../lottie/book_loading.json';
 import { useRouter } from 'next/router'
 import { AwesomeButton } from 'react-awesome-button';
@@ -23,6 +25,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem 1.5rem;
 `;
 
 const Page = () => {
@@ -54,11 +57,12 @@ const Page = () => {
       }
       <Lottie
         options={bookLoadingAnimOptions}
-        height={400}
-        width={400}
+        height={'50vw'}
+        width={'50vw'}
         isStopped={false}
         isPaused={false}
       />
+      <Card />
     </Container>
   );
 };
