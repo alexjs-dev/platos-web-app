@@ -1,7 +1,8 @@
 import React from 'react';
 import { useGoogleLogin } from 'react-google-login';
-import { AwesomeButton } from 'react-awesome-button';
 import { useRouter } from 'next/router'
+import { FaGoogle } from 'react-icons/fa';
+import GlassButton from '../../../components/GlassButton'
 
 // refresh token
 import { refreshTokenSetup } from './utils/refreshToken';
@@ -31,13 +32,13 @@ function Login() {
   });
 
   return (
-    <AwesomeButton onPress={() => {
+    <GlassButton onPress={() => {
       signIn();
       router.push('/')
     }} >
-      {/* <img src="icons/google.svg" alt="google login" className="icon"></img> */}
-      <span>Sign in with Google</span>
-    </AwesomeButton>
+      <FaGoogle/>
+      <span>&nbsp;Sign in with Google</span>
+    </GlassButton>
   );
 }
 
