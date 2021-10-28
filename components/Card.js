@@ -72,12 +72,12 @@ const Icon = styled.div`
 
   border-radius: 20px;
   position: absolute;
-  height: 7rem;
-  width: 7rem;
+  height: 3rem;
+  width: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 6rem;
+  top: 9rem;
   left: 50%;
   transform: translateX(-50%);
   transition: all 0.3s ease-in-out;

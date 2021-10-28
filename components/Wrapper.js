@@ -6,6 +6,12 @@ const Container = styled.div`
   position: relative;
   z-index: 0;
   width: 100%;
+  margin-bottom: 200px;
+  > h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
   > svg {
     position: absolute;
     top: 50%;
@@ -15,29 +21,32 @@ const Container = styled.div`
   }
   @media screen and (max-width: 768px) {
     > svg {
-      display: none;
+      display: block;
     }
   }
 `;
 
 const MobileWrapper = styled.div`
-  display: none;
-  width: 50vw;
-  height: 50vw;
+  display: none !important;
+  width: 25vw;
+  height: 25vw;
   position: absolute;
+  justify-content: center;
+  align-items: center;
   svg {
-    width: 100%;
-    height: 100%;
+    width: 25vw;
+    height: 25vw;
   }
   @media screen and (max-width: 768px) {
-    display: block;
+    display: flex !important;
   }
 `;
 
-const Wrapper = ({ content, background }) => {
+const Wrapper = ({ content, background, title }) => {
   return (
     <>
-      <Container className="wrapper">
+      <Container>
+        <h1>{title}</h1>
         {content}
         {background && background}
       </Container>
