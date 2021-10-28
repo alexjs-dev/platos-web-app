@@ -49,6 +49,9 @@ const Banner = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   background-attachment: fixed;
+  @supports (-webkit-touch-callout: none) {
+    background-attachment: none;
+  }
 `;
 
 const Content = styled.div`
