@@ -8,7 +8,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import { RiHandCoinFill } from 'react-icons/ri';
 import styled from 'styled-components';
 import { useGoogleLogin } from 'react-google-login';
-import { CLIENT_ID } from '../pages/login/google/config';
+import { CLIENT_ID } from '../utils/google/config';
 // svg {
 //   color: #352b73;
 //   position: absolute;
@@ -37,11 +37,11 @@ const Wrapper = styled.div`
   }
 `;
 const Name = styled.h2`
-margin-top: 10px;
-@media screen and (max-width: 768px) {
-  display: none;
-}
-`
+  margin-top: 10px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
 const MarketIcon = styled.section`
   display: flex;
   justify-content: center;
@@ -78,9 +78,13 @@ const Header = () => {
   const router = useRouter();
   return (
     <Wrapper>
-      <div style={{marginTop: '10px', marginLeft: "10px"}}><BiArch color= "#352b73" size="2em"/></div>
-      <div style={{alignSelf: 'end'}}>
-        <MarketIcon><RiHandCoinFill color="#352b73"/></MarketIcon>
+      <div style={{ marginTop: '10px', marginLeft: '10px' }}>
+        <BiArch color="#352b73" size="2em" />
+      </div>
+      <div style={{ alignSelf: 'end' }}>
+        <MarketIcon>
+          <RiHandCoinFill color="#352b73" />
+        </MarketIcon>
         {profile ? (
           <>
             <Name>
@@ -88,7 +92,11 @@ const Header = () => {
               {profile && profile.name} &nbsp;&nbsp;
             </Name>
             <Link href="/profile">
-              <FaUserCircle  size="2em" color="#352b73" style={{marginTop: '10px'}}/> 
+              <FaUserCircle
+                size="2em"
+                color="#352b73"
+                style={{ marginTop: '10px' }}
+              />
             </Link>
           </>
         ) : (
