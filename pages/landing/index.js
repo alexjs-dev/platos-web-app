@@ -2,12 +2,12 @@ import Head from 'next/head';
 import Lottie from 'react-lottie';
 import styled from 'styled-components';
 import { AwesomeButton } from 'react-awesome-button';
-import * as girlReadingBookAnimation from '../../lottie/girl_reading_book.json';
+import * as bookLoadingAnim from '../../lottie/book_loading.json';
 
-const girlReadingBookAnimationOptions = {
+const bookLoadingAnimOptions = {
   loop: true,
   autoplay: true,
-  animationData: girlReadingBookAnimation,
+  animationData: bookLoadingAnim,
   rendererSettings: {
     preserveAspectRatio: 'xMidYMid slice',
   },
@@ -31,7 +31,7 @@ const Page = () => {
       <h1>Hello</h1>
       <AwesomeButton type="primary">Hello</AwesomeButton>
       <Lottie
-        options={girlReadingBookAnimationOptions}
+        options={bookLoadingAnimOptions}
         height={400}
         width={400}
         isStopped={false}
