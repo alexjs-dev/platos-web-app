@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Login from './google/Login'
+import Login from '../../utils/google/Login';
 
 const Container = styled.div`
   display: flex;
@@ -13,8 +13,20 @@ const Container = styled.div`
 
 const Page = () => (
   <Container>
-    <div style={{ marginBottom: '50px',flexDirection: 'column', display: 'flex', alignItems:'center' }}>
-      <img width="200px"  src="Logo.png" alt="google login" className="icon"></img>
+    <div
+      style={{
+        marginBottom: '50px',
+        flexDirection: 'column',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <img
+        width="200px"
+        src="Logo.png"
+        alt="google login"
+        className="icon"
+      ></img>
       <h2 style={{ marginTop: '20px' }}>Plato</h2>
     </div>
 

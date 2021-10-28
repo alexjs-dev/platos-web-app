@@ -1,12 +1,12 @@
 import React from 'react';
 import { useGoogleLogin } from 'react-google-login';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { FaGoogle } from 'react-icons/fa';
-import GlassButton from '../../../components/GlassButton'
+import GlassButton from '../../../components/GlassButton';
 
 // refresh token
 import { refreshTokenSetup } from './utils/refreshToken';
-import { CLIENT_ID } from './config'
+import { CLIENT_ID } from './config';
 function Login() {
   const onSuccess = (res) => {
     location.reload()   
@@ -15,12 +15,10 @@ function Login() {
   };
 
   const onFailure = (res) => {
-    alert(
-      `Failed to login. 😢`
-    );
+    alert(`Failed to login. 😢`);
   };
 
-  const router = useRouter()
+  const router = useRouter();
 
   const { signIn } = useGoogleLogin({
     onSuccess,
@@ -33,11 +31,13 @@ function Login() {
   });
 
   return (
-    <GlassButton onPress={() => {
-      signIn();
-      router.push('/')
-    }} >
-      <FaGoogle/>
+    <GlassButton
+      onPress={() => {
+        signIn();
+        router.push('/');
+      }}
+    >
+      <FaGoogle />
       <span>&nbsp;Sign in with Google</span>
     </GlassButton>
   );

@@ -7,7 +7,6 @@ import { BiArch } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { RiHandCoinFill } from 'react-icons/ri';
 import styled from 'styled-components';
-import Logout from '../pages/login/google/Logout';
 import { useGoogleLogin } from 'react-google-login';
 import { CLIENT_ID } from '../pages/login/google/config';
 // svg {
