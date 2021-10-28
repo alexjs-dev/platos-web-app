@@ -9,7 +9,8 @@ import { refreshTokenSetup } from './utils/refreshToken';
 import { CLIENT_ID } from './config'
 function Login() {
   const onSuccess = (res) => {
-    location.reload()    
+    location.reload()   
+    localStorage.setItem('coins', Math.floor(Math.random() * (10 - 1 + 1)) + 1) 
     refreshTokenSetup(res);
   };
 

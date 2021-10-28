@@ -5,28 +5,26 @@ import { useRouter } from 'next/router';
 import { BiArch } from 'react-icons/bi';
 import styled from 'styled-components';
 import Logout from '../pages/login/google/Logout';
+import { FaUserCircle } from 'react-icons/fa';
+import Link from 'next/link'
 
 import { useGoogleLogin } from 'react-google-login';
 import { CLIENT_ID } from '../pages/login/google/config';
-
+// svg {
+//   color: #352b73;
+//   position: absolute;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   top: 50%;
+//   font-size: 2rem;
+// }
 const Wrapper = styled.div`
-  svg {
-    color: #352b73;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    font-size: 2rem;
-  }
   background: #f3f3f3;
   border-bottom: 1px solid #e6e6e6;
   width: 100%;
   padding: 0.5rem;
   height: 80px;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
   a {
     color: white;
     font-weight: 300;
@@ -38,6 +36,7 @@ const Wrapper = styled.div`
     display: flex;
   }
 `;
+const Name = 
 
 const Header = () => {
   useGoogleLogin({
@@ -52,19 +51,17 @@ const Header = () => {
   const router = useRouter();
   return (
     <Wrapper>
-      <BiArch />
-      <div>
+      <div style={{marginTop: '10px'}}><BiArch color= "#352b73" size="2em"/></div>
+      <div style={{alignSelf: 'end'}}>
         {profile ? (
           <>
-            <h1>
+            <Name>
               Hello &nbsp;
-              {profile && profile.name}
-            </h1>
-            <Logout
-              clear={() => {
-                setProfile(null);
-              }}
-            />
+              {profile && profile.name} &nbsp;&nbsp;
+            </Name>
+            <Link href="/profile">
+              <FaUserCircle  size="2em" color="#352b73" /> 
+            </Link>
           </>
         ) : (
           <GlassButton

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useGoogleLogout,  } from 'react-google-login';
 import { CLIENT_ID } from './config';
-import { AwesomeButton } from 'react-awesome-button';
+import GlassButton from '../../../components/GlassButton'
 
 const clientId = CLIENT_ID;
 
-function Logout() {
+function Logout({clear, style={}}) {
   const onLogoutSuccess = () => {
    location.reload()    
   };
@@ -21,11 +21,12 @@ function Logout() {
   });
 
   return (
-    <AwesomeButton  onPress={()=> {
+    <GlassButton  onPress={()=> {
+      clear();
      signOut()
-    }} >
+    }} style={{...style}} >
       Sign out
-    </AwesomeButton>
+    </GlassButton>
   );
 }
 
