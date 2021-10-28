@@ -2,15 +2,15 @@ import React from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import { useRouter } from 'next/router';
 import { FaGoogle } from 'react-icons/fa';
-import GlassButton from '../../../components/GlassButton';
+import GlassButton from '../../components/GlassButton';
 
 // refresh token
 import { refreshTokenSetup } from './utils/refreshToken';
 import { CLIENT_ID } from './config';
 function Login() {
   const onSuccess = (res) => {
-    location.reload()   
-    localStorage.setItem('coins', Math.floor(Math.random() * (10 - 1 + 1)) + 1) 
+    location.reload();
+    localStorage.setItem('coins', Math.floor(Math.random() * (10 - 1 + 1)) + 1);
     refreshTokenSetup(res);
   };
 
