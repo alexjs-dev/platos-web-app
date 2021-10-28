@@ -78,9 +78,13 @@ const Header = () => {
   const router = useRouter();
   return (
     <Wrapper>
-      <div style={{marginTop: '10px', marginLeft: "10px"}}><BiArch color= "#352b73" size="2em"/></div>
+      <div style={{marginTop: '10px', marginLeft: "10px"}}>
+        <Link href="/">
+          <BiArch color= "#352b73" size="2em"/>
+        </Link>
+      </div>
       <div style={{alignSelf: 'end'}}>
-        <MarketIcon><RiHandCoinFill color="#352b73"/></MarketIcon>
+          <MarketIcon><RiHandCoinFill color="#352b73"/></MarketIcon>
         {profile ? (
           <>
             <Name>
