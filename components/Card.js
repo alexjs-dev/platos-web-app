@@ -90,7 +90,7 @@ const Icon = styled.div`
   justify-content: center;
   align-items: center;
   top: ${(props) => (props.revert && 'unset') || '9rem'};
-  bottom: ${(props) => (props.revert && '3rem') || 'unset'};
+  bottom: ${(props) => (props.revert && '4rem') || 'unset'};
   left: 50%;
   transform: translateX(-50%);
   transition: all 0.3s ease-in-out;
@@ -122,13 +122,15 @@ const Icon = styled.div`
   @media screen and (max-width: 768px) {
     height: 3.5rem;
     width: 3.5rem;
-    top: 9rem;
+    top: ${(props) => (props.revert && 'unset') || '9rem'};
+    bottom: ${(props) => (props.revert && '1.5rem') || 'unset'};
   }
 `;
 
 const Settings = styled.button`
   position: absolute;
-  top: 12rem;
+  top: ${(props) => (props.revert && 'unset') || '11rem'};
+  bottom: ${(props) => (props.revert && '3rem') || 'unset'};
   right: 0.5rem;
   border-radius: 1rem;
   padding: 0.7rem;
@@ -208,7 +210,7 @@ const Card = ({
   return (
     <Container revert={isReverted}>
       <Icon revert={isReverted}>{icon}</Icon>
-      <Settings>
+      <Settings revert={isReverted}>
         <BsCartFill />
       </Settings>
       <Banner src={backgroundImage} className="grid" revert={isReverted} />
