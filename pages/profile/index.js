@@ -54,6 +54,11 @@ const Name = styled.h2`
 `;
 const Tokens = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    object-fit: scale-down !important;
+  }
 `;
 const Purchases = styled.div`
   margin-top: '20px';
@@ -107,7 +112,6 @@ const Page = () => {
             <Row>
               <div
                 style={{
-                  marginTop: '18px',
                   marginRight: '5px',
                   fontSize: '20px',
                 }}
@@ -117,9 +121,11 @@ const Page = () => {
               <Tokens>
                 <div
                   style={{
-                    marginTop: '25px',
                     marginRight: '5px',
                     fontSize: '20px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                   }}
                 >
                   {coins} x
@@ -151,10 +157,17 @@ const Page = () => {
                       key={Math.random()}
                       style={{
                         marginTop: '20px',
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                        alignItems: 'center',
                       }}
                     >
-                      {Icon}1 x {purchase.title} {purchase.descriptionContent1}
-                      PLT
+                      {Icon}
+                      &nbsp;
+                      <div>
+                        1 x {purchase.title} {purchase.descriptionContent1}
+                      </div>
+                      &nbsp; PLT
                     </div>
                   );
                 })}
