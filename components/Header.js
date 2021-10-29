@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import GlassButton from './GlassButton';
 import { useRouter } from 'next/router';
-import { BiArch } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { RiHandCoinFill } from 'react-icons/ri';
 import styled from 'styled-components';
@@ -78,9 +77,9 @@ const Header = () => {
   const router = useRouter();
   return (
     <Wrapper>
-      <div style={{marginTop: '10px', marginLeft: "10px"}}>
+      <div style={{marginTop: '5px', marginLeft: "10px"}}>
         <Link href="/" > 
-          <a><BiArch color= "#352b73" size="2em"/></a>
+          <a> <img width="100px" src="Logo.png" alt="logo" ></img></a>
         </Link>
       </div>
       <div style={{alignSelf: 'end'}}>
