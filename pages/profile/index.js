@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { FaUserCircle } from 'react-icons/fa';
 import Image from 'next/image';
-import { FaFeatherAlt } from 'react-icons/fa';
 import { ContextApi } from '../../state/ContextApi';
 
 import { useState, useEffect, useContext } from 'react';
@@ -72,6 +71,7 @@ const Purchases = styled.div`
     width: 40px !important;
     height: 40px !important;
     border-radius: 24px;
+    object-fit: scale-down !important;
   }
 `;
 
