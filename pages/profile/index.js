@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { FaUserCircle } from 'react-icons/fa';
+import Image from 'next/image';
 
 import { useState, useEffect } from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import { CLIENT_ID } from '../../utils/google/config';
 import Header from '../../components/Header';
-import Logout from '../../utils/google/Logout'
+import Logout from '../../utils/google/Logout';
 import { useRouter } from 'next/router';
 
 const Container = styled.div`
@@ -96,19 +97,23 @@ const Page = () => {
                 <div style={{ marginTop: '25px', marginRight: '5px' }}>
                   {coins} x
                 </div>
-                <img
-                  width="30px" height="30px"
+                <Image
+                  src="/coin.png"
+                  width={20}
+                  alt="Coin"
+                  height={20}
                   style={{ marginTop: '20px' }}
-                  src="coin.png"
                 />
               </Tokens>
             </Row>
           </Box>
-          <Logout style={{width: "100%"}} clear={() => {
-          router.push('/')
-        }}/>
+          <Logout
+            style={{ width: '100%' }}
+            clear={() => {
+              router.push('/');
+            }}
+          />
         </BoxContainer>
-
       </Container>
     </>
   );

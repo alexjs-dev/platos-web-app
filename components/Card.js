@@ -188,23 +188,24 @@ const Details = styled.div`
   }
 `;
 
-const Card = ({
-  backgroundImage,
-  isHot,
-  isReverted,
-  title,
-  type,
-  descriptionTitle1,
-  descriptionTitle2,
-  descriptionTitle3,
-  descriptionTitle4,
-  descriptionContent1,
-  descriptionContent2,
-  descriptionContent3,
-  actionTitle,
-  onClick,
-  icon,
-}) => {
+const Card = (props) => {
+  const {
+    backgroundImage,
+    isHot,
+    isReverted,
+    title,
+    type,
+    descriptionTitle1,
+    descriptionTitle2,
+    descriptionTitle3,
+    descriptionTitle4,
+    descriptionContent1,
+    descriptionContent2,
+    descriptionContent3,
+    actionTitle,
+    onClick,
+    icon,
+  } = props;
   const ChartColor = isHot ? '#FF5733' : '0096ff';
   const ChartIcon = isHot ? BiLineChart : BiLineChartDown;
   return (
@@ -237,7 +238,7 @@ const Card = ({
             <ChartIcon color={ChartColor} />
           </section>
         </Details>
-        <GlassButton type="primary" onPress={onClick}>
+        <GlassButton type="primary" onPress={() => onClick && onClick(props)}>
           {actionTitle}
         </GlassButton>
       </Content>

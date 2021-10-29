@@ -1,8 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import GlassButton from './GlassButton';
 import { useRouter } from 'next/router';
+import { ContextApi } from '../state/ContextApi';
 import { FaUserCircle } from 'react-icons/fa';
 import { RiHandCoinFill } from 'react-icons/ri';
 import styled from 'styled-components';
@@ -23,6 +25,9 @@ const Wrapper = styled.div`
   padding: 0.5rem;
   height: 80px;
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   justify-content: space-between;
   a {
     color: white;
@@ -40,6 +45,12 @@ const Name = styled.h2`
   @media screen and (max-width: 768px) {
     display: none;
   }
+`;
+const Tokens = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
 `;
 const MarketIcon = styled.a`
   display: flex;
@@ -75,24 +86,47 @@ const Header = () => {
   });
   const [profile, setProfile] = useState();
   const router = useRouter();
+  const [coins, setCoins] = useState();
+  const context = useContext(ContextApi);
+  const $event = context.event;
+  // play animations state
+  const [animated, setAnimated] = useState(false);
+  $event.useSubscription((type) => {
+    if (type === 'purchase') {
+      const coinVal = localStorage.getItem('coins');
+      setCoins(coinVal);
+      setAnimated(true);
+      setTimeout(() => {
+        setAnimated(false);
+      }, 500);
+    }
+  });
+  useEffect(() => {
+    const coinVal = localStorage.getItem('coins');
+    setCoins(coinVal);
+  }, [coins]);
   return (
     <Wrapper>
-      <div style={{marginTop: '5px', marginLeft: "10px"}}>
-        <Link href="/" > 
-          <a> <img width="100px" src="Logo.png" alt="logo" ></img></a>
+      <div style={{ marginTop: '5px', marginLeft: '10px' }}>
+        <Link href="/">
+          <a>
+            <img width="100px" src="Logo.png" alt="logo"></img>
+          </a>
         </Link>
       </div>
-      <div style={{alignSelf: 'end'}}>
+      <div style={{ alignSelf: 'end' }}>
         <Link href="/market">
-          <MarketIcon><RiHandCoinFill color="#352b73"/></MarketIcon>
-          </Link>
+          <MarketIcon>
+            <RiHandCoinFill color="#352b73" />
+          </MarketIcon>
+        </Link>
 
         {profile ? (
           <>
-            <Name>
-              Hello &nbsp;
-              {profile && profile.name} &nbsp;&nbsp;
-            </Name>
+            <Tokens>
+              {coins} x&nbsp;
+              <Image src="/coin.png" width={20} alt="Coin" height={20} />
+            </Tokens>
             <Link href="/profile">
               <a>
                 <FaUserCircle

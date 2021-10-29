@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import Lottie from 'react-lottie';
+import toast, { Toaster } from 'react-hot-toast';
 import { BsPencilFill } from 'react-icons/bs';
+import { ContextApi } from '../../state/ContextApi';
 import { MdFastfood } from 'react-icons/md';
 import AbstractLogo from '../../public/abstract_1.svg';
 import Card from '../../components/Card';
@@ -45,8 +47,12 @@ const Market = () => {
   const [loading, setLoading] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
   const router = useRouter();
+  const context = useContext(ContextApi);
+  console.log('context', context);
+  const $event = context.event;
   return (
     <>
+      <Toaster />
       <Header />
       <Container>
         <Search />
@@ -85,7 +91,22 @@ const Market = () => {
                 .map((card) => (
                   <Card
                     key={card.title}
-                    onClick={() => router.push('/market')}
+                    onClick={(card) => {
+                      const coinVal = localStorage.getItem('coins');
+                      const price =
+                        card.descriptionContent1 &&
+                        parseFloat(card.descriptionContent1);
+                      if (price && coinVal) {
+                        const current = parseFloat(coinVal);
+                        if (current >= price) {
+                          localStorage.setItem('coins', current - price);
+                          toast('Purchased 🔥');
+                          $event.emit('purchase');
+                        } else {
+                          toast('Not enough coins 😞!');
+                        }
+                      }
+                    }}
                     {...card}
                   />
                 ))}
@@ -96,8 +117,8 @@ const Market = () => {
         {loading && (
           <Lottie
             options={animationOptions}
-            height={'20vw'}
-            width={'20vw'}
+            height={'30vw'}
+            width={'30vw'}
             isStopped={false}
             isPaused={false}
           />
