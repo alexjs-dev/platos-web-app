@@ -75,8 +75,8 @@ const Footer = () => {
       </div>
       <div>
         <Link href="/">Buy crypto</Link>
-        <Link href="/">Sell Pluto coin</Link>
-        <Link href="/">About Pluto coin</Link>
+        <Link href="/">Sell Yolo coin</Link>
+        <Link href="/">About Yolo coin</Link>
       </div>
       <div>
         <Link href="/">Legal</Link>

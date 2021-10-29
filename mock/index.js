@@ -55,6 +55,56 @@ const imageSize = 100;
 export const marketCards = [
   {
     isHot: true,
+    title: 'Lunch with Maarja',
+    type: 'Rewards',
+    item: {
+      type: 'merch',
+    },
+    actionTitle: 'Buy',
+    descriptionTitle1: 'Price',
+    descriptionTitle2: 'Bought',
+    descriptionTitle3: 'Value',
+    descriptionTitle4: 'Hot',
+    descriptionContent1: 8,
+    descriptionContent2: 500,
+    descriptionContent3: 'Amazing',
+    backgroundImage: 'gold.jpg',
+    icon: (
+      <Image
+        src="/market/maarja.png"
+        alt="Product"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
+  },
+  {
+    isHot: true,
+    title: 'Respect from Roman',
+    type: 'Rewards',
+    item: {
+      type: 'merch',
+    },
+    actionTitle: 'Buy',
+    descriptionTitle1: 'Price',
+    descriptionTitle2: 'Bought',
+    descriptionTitle3: 'Value',
+    descriptionTitle4: 'Hot',
+    descriptionContent1: 900,
+    descriptionContent2: 827,
+    descriptionContent3: 'Huge',
+    backgroundImage: 'gold.jpg',
+    icon: (
+      <Image
+        src="/market/roman.png"
+        alt="Pen"
+        width={imageSize}
+        height={imageSize}
+      />
+    ),
+  },
+  {
+    isHot: true,
     title: 'Yolo Pen',
     type: 'Yolo Merch',
     item: {
@@ -81,7 +131,7 @@ export const marketCards = [
   {
     isHot: true,
     title: '5 EUR coupon',
-    type: 'Freddo',
+    type: 'Fredo',
     item: {
       type: 'food',
     },
@@ -128,31 +178,31 @@ export const marketCards = [
       />
     ),
   },
-  {
-    isHot: false,
-    title: 'Yolo Dishes',
-    type: 'Yolo Merch',
-    item: {
-      type: 'merch',
-    },
-    actionTitle: 'Buy',
-    descriptionTitle1: 'Price',
-    descriptionTitle2: 'Bought',
-    descriptionTitle3: 'Weight',
-    descriptionTitle4: 'Cold',
-    descriptionContent1: 10,
-    descriptionContent2: 52,
-    descriptionContent3: '500 (g)',
-    backgroundImage: 'bg.jpg',
-    icon: (
-      <Image
-        src="/market/dishes.png"
-        alt="Product"
-        width={imageSize}
-        height={imageSize}
-      />
-    ),
-  },
+  // {
+  //   isHot: false,
+  //   title: 'Yolo Dishes',
+  //   type: 'Yolo Merch',
+  //   item: {
+  //     type: 'merch',
+  //   },
+  //   actionTitle: 'Buy',
+  //   descriptionTitle1: 'Price',
+  //   descriptionTitle2: 'Bought',
+  //   descriptionTitle3: 'Weight',
+  //   descriptionTitle4: 'Cold',
+  //   descriptionContent1: 10,
+  //   descriptionContent2: 52,
+  //   descriptionContent3: '500 (g)',
+  //   backgroundImage: 'bg.jpg',
+  //   icon: (
+  //     <Image
+  //       src="/market/dishes.png"
+  //       alt="Product"
+  //       width={imageSize}
+  //       height={imageSize}
+  //     />
+  //   ),
+  // },
   {
     isHot: false,
     title: 'Yolo Cup',

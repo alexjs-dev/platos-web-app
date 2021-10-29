@@ -108,6 +108,7 @@ const Icon = styled.div`
     transition: all 0.3s ease-in-out;
     margin-bottom: 80px;
     object-fit: scale-down;
+    border-radius: 20px;
 
     &:hover {
       transform: scale(1.2);

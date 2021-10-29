@@ -76,8 +76,8 @@ const Page = () => {
       <Header />
       <Container>
         <Head>
-          <title>Plato</title>
-          <meta name="description" content="Plato coin market place" />
+          <title>Yolo</title>
+          <meta name="description" content="Yolo coin market place" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <h1>Begin your journey</h1>
