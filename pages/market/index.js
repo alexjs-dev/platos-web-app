@@ -11,6 +11,7 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Wrapper from '../../components/Wrapper';
 import Categories from '../../components/Categories';
+import { useRouter } from 'next/router';
 
 import { marketCards } from '../../mock';
 import GlassButton from '../../components/GlassButton';
@@ -43,6 +44,7 @@ const Market = () => {
   const [cards, setCards] = useState(marketCards);
   const [loading, setLoading] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
+  const router = useRouter();
   return (
     <>
       <Header />

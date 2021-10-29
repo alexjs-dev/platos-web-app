@@ -3,10 +3,20 @@ import { useGoogleLogin } from 'react-google-login';
 import { useRouter } from 'next/router';
 import { FaGoogle } from 'react-icons/fa';
 import GlassButton from '../../components/GlassButton';
+import styled from 'styled-components';
 
 // refresh token
 import { refreshTokenSetup } from './utils/refreshToken';
 import { CLIENT_ID } from './config';
+const Round = styled.span`
+  background: #352b73;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+`;
 function Login() {
   const onSuccess = (res) => {
     location.reload();
@@ -37,7 +47,7 @@ function Login() {
         router.push('/');
       }}
     >
-      <FaGoogle />
+      <Round><FaGoogle color="black"/></Round>
       <span>&nbsp;Sign in with Google</span>
     </GlassButton>
   );
