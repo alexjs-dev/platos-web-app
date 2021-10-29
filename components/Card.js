@@ -48,9 +48,8 @@ const Banner = styled.div`
   justify-content: center;
   box-sizing: border-box;
   overflow: hidden;
-  background-attachment: fixed;
-  @media screen and (max-width: 768px) {
-    background-attachment: none;
+  @media screen and (min-width: 769px) {
+    background-attachment: fixed;
   }
 `;
 
