@@ -99,7 +99,7 @@ const Page = () => {
                 <img
                   width="30px" height="30px"
                   style={{ marginTop: '20px' }}
-                  src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png"
+                  src="coin.png"
                 />
               </Tokens>
             </Row>
