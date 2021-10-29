@@ -88,8 +88,9 @@ const Search = (props) => {
           <div>Freddo 10 EUR coupon (90)</div>
           <div>Dodo pizza 10 EUR coupon (90)</div>
           <div>Day off (900)</div>
-          <div>Winning a trip to Croatia (priceless)</div>
-          <div>High-five from Tim (1000)</div>
+          <div>Winning a trip to Croatia (900)</div>
+          <div>Crypto advise from Tim (1000)</div>
+          <div>Betting suggestions from Joe (priceless)</div>
         </AutoComplete>
       )}
     </Container>
