@@ -27,7 +27,6 @@ const Page = () => (
         alt="google login"
         className="icon"
       ></img>
-      <h2 style={{ marginTop: '20px' }}>Plato</h2>
     </div>
 
     <Login />
