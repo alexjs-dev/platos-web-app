@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FaUserCircle } from 'react-icons/fa';
 import Image from 'next/image';
+import { FaFeatherAlt } from 'react-icons/fa';
 
 import { useState, useEffect } from 'react';
 import { useGoogleLogin } from 'react-google-login';
@@ -56,7 +57,6 @@ const Row = styled.div`
   width: 250px;
   justify-content: space-between;
   align-items: center;
-  font-size: 20px;
 `;
 const Page = () => {
   const [coins, setCoins] = useState();
@@ -91,10 +91,16 @@ const Page = () => {
                   fontSize: '20px',
                 }}
               >
-                Tokens:
+                Token balance:
               </div>
               <Tokens>
-                <div style={{ marginTop: '25px', marginRight: '5px' }}>
+                <div
+                  style={{
+                    marginTop: '25px',
+                    marginRight: '5px',
+                    fontSize: '20px',
+                  }}
+                >
                   {coins} x
                 </div>
                 <Image
@@ -106,6 +112,47 @@ const Page = () => {
                 />
               </Tokens>
             </Row>
+            <div
+              style={{
+                marginTop: '20px',
+                color: '#352b73',
+              }}
+            >
+              <div
+                style={{
+                  marginTop: '10px',
+                  fontSize: '20px',
+                }}
+              >
+                Your purchases
+              </div>
+              <div
+                style={{
+                  marginTop: '20px',
+                }}
+              >
+                <img src="/market/cap.png" width="25px" /> 1 x Yolo cap 10 PLT
+              </div>
+              <div
+                style={{
+                  marginTop: '10px',
+                }}
+              >
+                <img src="/market/pen.png" width="25px" /> 1 x Yolo Pen 0.5 PLT
+              </div>
+              <div
+                style={{
+                  marginTop: '10px',
+                }}
+              >
+                <FaFeatherAlt
+                  size="1em"
+                  color="#352b73"
+                  style={{ marginRight: '10px' }}
+                />
+                1 x Respect from Roman 900 PLT
+              </div>
+            </div>
           </Box>
           <Logout
             style={{ width: '100%' }}
