@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { FaUserCircle } from 'react-icons/fa';
 import Image from 'next/image';
 import { FaFeatherAlt } from 'react-icons/fa';
+import { ContextApi } from '../../state/ContextApi';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import { CLIENT_ID } from '../../utils/google/config';
 import Header from '../../components/Header';
@@ -14,7 +15,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem 1.5rem;
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   background: linear-gradient(360deg, #b9fbff 0%, #d1c9f1 100%);
 `;
@@ -26,8 +27,12 @@ const BoxContainer = styled.div`
 `;
 const Box = styled.div`
   margin: 0 auto;
-  width: 500px;
+  padding: 12px 0;
+  max-width: 500px;
+  width: 100%;
   min-height: 500px;
+  max-height: 800px;
+  overflow: auto;
   margin-bottom: 20px;
   @media screen and (max-width: 768px) {
     width: 20rem;
@@ -50,6 +55,21 @@ const Name = styled.h2`
 const Tokens = styled.div`
   display: flex;
 `;
+const Purchases = styled.div`
+  margin-top: '20px';
+  color: '#352b73';
+  div:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 24px;
+  }
+`;
+
 const Row = styled.div`
   display: flex;
   margin-top: 10px;
@@ -74,7 +94,8 @@ const Page = () => {
       setProfile(res.profileObj);
     },
   });
-
+  const { data } = useContext(ContextApi);
+  console.log(data);
   return (
     <>
       <Header />
@@ -105,19 +126,14 @@ const Page = () => {
                 </div>
                 <Image
                   src="/coin.png"
-                  width={20}
+                  width={40}
                   alt="Coin"
-                  height={20}
+                  height={40}
                   style={{ marginTop: '20px' }}
                 />
               </Tokens>
             </Row>
-            <div
-              style={{
-                marginTop: '20px',
-                color: '#352b73',
-              }}
-            >
+            <Purchases>
               <div
                 style={{
                   marginTop: '10px',
@@ -126,33 +142,23 @@ const Page = () => {
               >
                 Your purchases
               </div>
-              <div
-                style={{
-                  marginTop: '20px',
-                }}
-              >
-                <img src="/market/cap.png" width="25px" /> 1 x Yolo cap 10 PLT
-              </div>
-              <div
-                style={{
-                  marginTop: '10px',
-                }}
-              >
-                <img src="/market/pen.png" width="25px" /> 1 x Yolo Pen 0.5 PLT
-              </div>
-              <div
-                style={{
-                  marginTop: '10px',
-                }}
-              >
-                <FaFeatherAlt
-                  size="1em"
-                  color="#352b73"
-                  style={{ marginRight: '10px' }}
-                />
-                1 x Respect from Roman 900 PLT
-              </div>
-            </div>
+              {data &&
+                data.purchases &&
+                data.purchases.map((purchase) => {
+                  const Icon = purchase.icon;
+                  return (
+                    <div
+                      key={Math.random()}
+                      style={{
+                        marginTop: '20px',
+                      }}
+                    >
+                      {Icon}1 x {purchase.title} {purchase.descriptionContent1}
+                      PLT
+                    </div>
+                  );
+                })}
+            </Purchases>
           </Box>
           <Logout
             style={{ width: '100%' }}

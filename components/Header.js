@@ -51,6 +51,14 @@ const Tokens = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 10px;
+  overflow: visible !important;
+  span {
+    overflow: visible !important;
+  }
+  img {
+    transition: all 0.3s ease;
+    transform: ${(props) => (props.animated && 'scale(1.5)') || 'scale(1)'};
+  }
 `;
 const MarketIcon = styled.a`
   display: flex;
@@ -88,11 +96,12 @@ const Header = () => {
   const router = useRouter();
   const [coins, setCoins] = useState();
   const context = useContext(ContextApi);
-  const $event = context.event;
+  console.log('context', context);
+  const $event = context.data.event;
   // play animations state
   const [animated, setAnimated] = useState(false);
-  $event.useSubscription((type) => {
-    if (type === 'purchase') {
+  $event.useSubscription((event) => {
+    if (event.type === 'purchase') {
       const coinVal = localStorage.getItem('coins');
       setCoins(coinVal);
       setAnimated(true);
@@ -114,7 +123,7 @@ const Header = () => {
           </a>
         </Link>
       </div>
-      <div style={{ alignSelf: 'end' }}>
+      <div style={{ alignSelf: 'end', overflow: 'visible' }}>
         <Link href="/market">
           <MarketIcon>
             <RiHandCoinFill color="#352b73" />
@@ -123,7 +132,7 @@ const Header = () => {
 
         {profile ? (
           <>
-            <Tokens>
+            <Tokens animated={animated}>
               {coins} x&nbsp;
               <Image src="/coin.png" width={20} alt="Coin" height={20} />
             </Tokens>

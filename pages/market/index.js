@@ -13,7 +13,6 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Wrapper from '../../components/Wrapper';
 import Categories from '../../components/Categories';
-import { useRouter } from 'next/router';
 
 import { marketCards } from '../../mock';
 import GlassButton from '../../components/GlassButton';
@@ -46,10 +45,8 @@ const Market = () => {
   const [cards, setCards] = useState(marketCards);
   const [loading, setLoading] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
-  const router = useRouter();
   const context = useContext(ContextApi);
-  console.log('context', context);
-  const $event = context.event;
+  const $event = context.data.event;
   return (
     <>
       <Toaster />
@@ -101,7 +98,9 @@ const Market = () => {
                         if (current >= price) {
                           localStorage.setItem('coins', current - price);
                           toast('Purchased 🔥');
-                          $event.emit('purchase');
+                          $event.emit({ type: 'purchase', payload: card });
+                          const prevPurchases = context.data.purchases || [];
+                          context.setPurchases([...prevPurchases, card]);
                         } else {
                           toast('Not enough coins 😞!');
                         }

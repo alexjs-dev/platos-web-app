@@ -65,7 +65,7 @@ export const marketCards = [
     descriptionTitle2: 'Bought',
     descriptionTitle3: 'Value',
     descriptionTitle4: 'Hot',
-    descriptionContent1: 8,
+    descriptionContent1: 600,
     descriptionContent2: 500,
     descriptionContent3: 'Amazing',
     backgroundImage: 'gold.jpg',
